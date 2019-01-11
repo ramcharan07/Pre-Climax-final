@@ -1,0 +1,1157 @@
+Enter password: **************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 8.0.12 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> Create table userlogin(username varchar(20),password varchar(10),rolecode varchar(10));
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bankapp            |
+| ecommerce          |
+| holder             |
+| housejoy           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| register           |
+| student            |
+| sys                |
+| talent             |
++--------------------+
+11 rows in set (0.27 sec)
+
+mysql> use holder;
+Database changed
+mysql> Create table userlogin(username varchar(20),password varchar(10),rolecode varchar(10));
+Query OK, 0 rows affected (0.91 sec)
+
+mysql> create table AccountDetails(username varchar(20), insured_name varchar(30),insured_street varchar(40),insured_city varchar(15), insured_state varchar(15),insured_zip number(6),business_segment varchar(30),account_number number(10) primary key,agent_Name varchar(10));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number(6),business_segment varchar(30),account_number number(10) primary key,age' at line 1
+mysql> create table AccountDetails(username varchar(20), insured_name varchar(30),insured_street varchar(40),insured_city varchar(15), insured_state varchar(15),insured_zip int(6),business_segment varchar(30),account_number int(10) primary key,agent_Name varchar(10));
+Query OK, 0 rows affected (0.48 sec)
+
+mysql> create table PolicyDetails(premium int(20),policy_number int(10) primary key,account_number int(10), foreign key(account_number) references AccountDetails(account_number));
+Query OK, 0 rows affected (0.85 sec)
+
+mysql> CREATE TABLE policycreation(
+    -> Business_segment varchar2(20),
+    -> Question varchar2(50),
+    -> Answer1 varchar2(30),
+    -> Ans1_weightage number(5),
+    -> Answer2 varchar2(30),
+    -> Ans2_weightage number(5),
+    -> Answer3 varchar2(30),
+    -> Ans3_weightage number(5));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar2(20),
+Question varchar2(50),
+Answer1 varchar2(30),
+Ans1_weightage number' at line 2
+mysql> CREATE TABLE policycreation(
+    -> Business_segment varchar(20),
+    -> Question varchar(50),
+    -> Answer1 varchar(30),
+    -> Ans1_weightage int(5),
+    -> Answer2 varchar(30),
+    -> Ans2_weightage int(5),
+    -> Answer3 varchar(30),
+    -> Ans3_weightage int(5));
+Query OK, 0 rows affected (0.57 sec)
+
+mysql> insert into policycreation  values('Business_auto','vehical_type','light',200,'heavy',400,'truck',600);
+Query OK, 1 row affected (0.20 sec)
+
+mysql> insert into policycreation  values('Business_auto','vehical_model_year','less than 2000',200,'2001_to_2010',400,'more_than_2010',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into policycreation  values('Business_auto','vehical_model','high_segement',200,'mid_segement',400,'economy',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','daily_commute_distance','less_than_21',200,'21_to_50',400,'greater_than_50',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','service_center','authorized',200,'non_authorized',400,' ',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','collison_coverage_limit','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','bodily_injury_limit','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','uninsured_motorist','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into policycreation  values('Business_auto','unknown_hit_or_theft_coverage','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into policycreation  values('Business_auto','property_and_liability','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> insert into policycreation  values('general_merchant','business_type','general_store',200,'hardware',400,'clothing',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into policycreation  values('general_merchant','asset_value','less_than_1000000',200,'1000001_to_2500000',400,'more_than_2500001',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into policycreation  values('general_merchant','inflammable_objects','yes',200,'no',400,' ',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('general_merchant','propert_size','less_than_5000_sq_ft',200,'5000_to_10000_sq_ft',400,'more_than_10000_sq_ft',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('general_merchant','property_damage','upto_500000',200,'500000_to_1000000',400,'1000000_to_1500000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation  values('general_merchant','bodily_injury','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation  values('general_merchant','asset_theft_limit','upto_50000',200,'50000_t0_100000',400,'100001_to_200000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation  values('general_merchant','liability_coverage','10000_to_30000',200,'10000_to_30000',400,'10000_to_30000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation values('Restaurant','Restaurant type','only dining',200,'Dining with bar',400,'dining with bar and entertainment',600);
+ERROR 1406 (22001): Data too long for column 'Answer3' at row 1
+mysql>
+mysql> insert into policycreation values('Restaurant','Restaurant sq.ft','less than 1500 sq.ft',200,'from 1500 to 5000 sq ft ',400,'more than 5000 sq.ft',600);
+Query OK, 1 row affected (0.15 sec)
+
+mysql>
+mysql> insert into policycreation values('Restaurant','No. of sprinklers','up to 20',200,'21 to 40',400,'more than 40',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql>
+mysql> insert into policycreation values('Restaurant','No.of cylinders in kitchen','up to 5',200,'6 to 15 ',400,'more than 15',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Fine Arts','5000 to 15000',200,'15000-30000',400,'more than 30000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Property Damage','up to 500000',200,'from 500000 to 1500000',400,'more than 1500000',600);
+Query OK, 1 row affected (0.13 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Equipment Breakdown','up to 50000',200,'from 50000 to 200000',400,'more than 200000',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Liability Coverage','10000-15000',200,'from 15001 to 30000',400,'more than 30000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Bodily Injury','up to 25000',200,'25001 to 50000',400,'more than 50000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Apartment','Apartment Sq.ft','up to 1500 Sq.ft',200,'from 1500 to 5000sq.ft',400,'more than 5000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','No. of sprinklers','up to 5',200,'from 6 to 10',400,'more than 10',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Build year','before 2000',200,'2000 to 2010',400,'after 2010',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Property Damage','up to 500000',200,'from 500000 to 1500000',400,'more than 1500000',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Body injury limit','50000-100000',200,'100001-300000',400,'more than 300000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','No. of floors','less than 10',200,'10-30',400,'more than 30',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Number of fire exits','1',200,'2-3',400,'more than 3',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Asset Theft Limit','up to 50000',200,'50000-100000',400,'100001-200000',600);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> create table bussinessReport(businesssegment varchar(10),username varchar(10),policynumber int(20));
+Query OK, 0 rows affected (0.55 sec)
+
+mysql> select * from businessreport;
+ERROR 1146 (42S02): Table 'holder.businessreport' doesn't exist
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| userlogin        |
++------------------+
+8 rows in set (0.75 sec)
+
+mysql> insert into userlogin values('RamCharan','Ram','Admin');
+Query OK, 1 row affected (0.27 sec)
+
+mysql> desc userlogin;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | YES  |     | NULL    |       |
+| password | varchar(10) | YES  |     | NULL    |       |
+| rolecode | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.14 sec)
+
+mysql> create table temporarydata(question varchar(10),answer varchar(10),weightage int(10),username varchar(10));
+Query OK, 0 rows affected (0.55 sec)
+
+mysql> alter table temporarydata modify column question varchar(30);
+Query OK, 0 rows affected (0.35 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table temporarydata modify column answer varchar(30);
+Query OK, 0 rows affected (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from temporarydata;
++-------------------------------+----------------+-----------+-----------+
+| question                      | answer         | weightage | username  |
++-------------------------------+----------------+-----------+-----------+
+| vehical_type                  | light          |       200 | RamCharan |
+| vehical_type                  | light          |       200 | RamCharan |
+| vehical_model_year            | 2001_to_2010   |       400 | RamCharan |
+| vehical_model                 | high_segement  |       200 | RamCharan |
+| daily_commute_distance        | 21_to_50       |       400 | RamCharan |
+| service_center                | authorized     |       200 | RamCharan |
+| collison_coverage_limit       | 30001_to_50000 |       400 | RamCharan |
+| bodily_injury_limit           | 10000_to_30000 |       200 | RamCharan |
+| uninsured_motorist            | 30001_to_50000 |       400 | RamCharan |
+| unknown_hit_or_theft_coverage | 10000_to_30000 |       200 | RamCharan |
+| property_and_liability        | 30001_to_50000 |       400 | RamCharan |
++-------------------------------+----------------+-----------+-----------+
+11 rows in set (0.00 sec)
+
+mysql> delete table temporarydata where username='RamCharan';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table temporarydata where username='RamCharan'' at line 1
+mysql> delete  temporarydata where username='RamCharan';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username='RamCharan'' at line 1
+mysql> delete  temporarydata where username="RamCharan";
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where username="RamCharan"' at line 1
+mysql> delete  temporarydata ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> delete table temporarydata;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table temporarydata' at line 1
+mysql> truncate table temporarydata;
+Query OK, 0 rows affected (1.02 sec)
+
+mysql> select * from temporarydata;
+Empty set (0.00 sec)
+
+mysql> select * from reportgeneration;
+ERROR 1146 (42S02): Table 'holder.reportgeneration' doesn't exist
+mysql> create table bussinessReport(Business_Segment varchar(30),policyNumber int(20),username varchar(20));
+ERROR 1050 (42S01): Table 'bussinessreport' already exists
+mysql> select * from bussinessreport;
+Empty set (0.00 sec)
+
+mysql> desc bussinessreport;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| businesssegment | varchar(10) | YES  |     | NULL    |       |
+| username        | varchar(10) | YES  |     | NULL    |       |
+| policynumber    | int(20)     | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table bussinessreport modify column businesssegment varchar(30);
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from reportgeneration;
+ERROR 1146 (42S02): Table 'holder.reportgeneration' doesn't exist
+mysql> select * from temporarydata;
++-------------------------------+----------------+-----------+-----------+
+| question                      | answer         | weightage | username  |
++-------------------------------+----------------+-----------+-----------+
+| vehical_type                  | light          |       200 | RamCharan |
+| vehical_model_year            | 2001_to_2010   |       400 | RamCharan |
+| vehical_model                 | high_segement  |       200 | RamCharan |
+| daily_commute_distance        | less_than_21   |       200 | RamCharan |
+| service_center                | non_authorized |       400 | RamCharan |
+| collison_coverage_limit       | 10000_to_30000 |       200 | RamCharan |
+| bodily_injury_limit           | 30001_to_50000 |       400 | RamCharan |
+| uninsured_motorist            | 50001_to_10000 |       600 | RamCharan |
+| unknown_hit_or_theft_coverage | 30001_to_50000 |       400 | RamCharan |
+| property_and_liability        | 10000_to_30000 |       200 | RamCharan |
++-------------------------------+----------------+-----------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> truncate table temporarydata;
+Query OK, 0 rows affected (0.92 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| temporarydata    |
+| userlogin        |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from accountdetails;
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| username | insured_name | insured_street | insured_city | insured_state | insured_zip | business_segment | account_number | agent_Name |
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| NULL     | ramcha       | ramstret       | city         | ap            |       53002 | Business_auto    |         100001 | NULL       |
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+1 row in set (0.00 sec)
+
+mysql> truncate table accoundetails;
+ERROR 1146 (42S02): Table 'holder.accoundetails' doesn't exist
+mysql> truncate table accountdetails;
+ERROR 1701 (42000): Cannot truncate a table referenced in a foreign key constraint (`holder`.`policydetails`, CONSTRAINT `policydetails_ibfk_1`)
+mysql> select * from accountdetails;
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| username | insured_name | insured_street | insured_city | insured_state | insured_zip | business_segment | account_number | agent_Name |
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| NULL     | ramcha       | ramstret       | city         | ap            |       53002 | Business_auto    |         100001 | NULL       |
+| NULL     | susanth      | street         | city         | state         |       12345 | Business_auto    |       11234455 | NULL       |
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from reportgeneration;
+ERROR 1146 (42S02): Table 'holder.reportgeneration' doesn't exist
+mysql> select * from bussinessreport;
+Empty set (0.02 sec)
+
+mysql> select * from temporarydata;
++-------------------------------+----------------+-----------+-----------+
+| question                      | answer         | weightage | username  |
++-------------------------------+----------------+-----------+-----------+
+| vehical_type                  | light          |       200 | RamCharan |
+| vehical_model_year            | 2001_to_2010   |       400 | RamCharan |
+| vehical_model                 | high_segement  |       200 | RamCharan |
+| daily_commute_distance        | 21_to_50       |       400 | RamCharan |
+| service_center                | authorized     |       200 | RamCharan |
+| collison_coverage_limit       | 30001_to_50000 |       400 | RamCharan |
+| bodily_injury_limit           | 50001_to_10000 |       600 | RamCharan |
+| uninsured_motorist            | 30001_to_50000 |       400 | RamCharan |
+| unknown_hit_or_theft_coverage | 10000_to_30000 |       200 | RamCharan |
+| property_and_liability        | 30001_to_50000 |       400 | RamCharan |
++-------------------------------+----------------+-----------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> truncate table temporarydata;
+Query OK, 0 rows affected (1.12 sec)
+
+mysql> select rolecode from userlogin where username='RamCharan';
++----------+
+| rolecode |
++----------+
+| Admin    |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select * from bussinessreport;
+Empty set (0.00 sec)
+
+mysql> desc bussinessreport;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| businesssegment | varchar(30) | YES  |     | NULL    |       |
+| username        | varchar(10) | YES  |     | NULL    |       |
+| policynumber    | int(20)     | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.14 sec)
+
+mysql> select * from temporarydata;
+Empty set (0.00 sec)
+
+mysql> select * from accountdetails;
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| username | insured_name | insured_street | insured_city | insured_state | insured_zip | business_segment | account_number | agent_Name |
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| NULL     | ramcha       | ramstret       | city         | ap            |       53002 | Business_auto    |         100001 | NULL       |
+| susanth  | nitish       | navallur       | vizag        | andhra        |       53002 | Business_auto    |         789456 | RamCharan  |
+| NULL     | susanth      | street         | city         | state         |       12345 | Business_auto    |       11234455 | NULL       |
++----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| temporarydata    |
+| userlogin        |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from policydetails;
++---------+---------------+----------------+
+| premium | policy_number | account_number |
++---------+---------------+----------------+
+|    3200 |      19010001 |         100001 |
+|    3400 |      19010002 |       11234455 |
+|    3600 |      19010003 |         789456 |
++---------+---------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from policycreation;
++------------------+-------------------------------+----------------------+----------------+--------------------------+----------------+-----------------------+----------------+
+| Business_segment | Question                      | Answer1              | Ans1_weightage | Answer2                  | Ans2_weightage | Answer3               | Ans3_weightage |
++------------------+-------------------------------+----------------------+----------------+--------------------------+----------------+-----------------------+----------------+
+| Business_auto    | vehical_type                  | light                |            200 | heavy                    |            400 | truck                 |            600 |
+| Business_auto    | vehical_model_year            | less than 2000       |            200 | 2001_to_2010             |            400 | more_than_2010        |            600 |
+| Business_auto    | vehical_model                 | high_segement        |            200 | mid_segement             |            400 | economy               |            600 |
+| Business_auto    | daily_commute_distance        | less_than_21         |            200 | 21_to_50                 |            400 | greater_than_50       |            600 |
+| Business_auto    | service_center                | authorized           |            200 | non_authorized           |            400 |                       |            600 |
+| Business_auto    | collison_coverage_limit       | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | bodily_injury_limit           | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | uninsured_motorist            | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | unknown_hit_or_theft_coverage | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | property_and_liability        | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| general_merchant | business_type                 | general_store        |            200 | hardware                 |            400 | clothing              |            600 |
+| general_merchant | asset_value                   | less_than_1000000    |            200 | 1000001_to_2500000       |            400 | more_than_2500001     |            600 |
+| general_merchant | inflammable_objects           | yes                  |            200 | no                       |            400 |                       |            600 |
+| general_merchant | propert_size                  | less_than_5000_sq_ft |            200 | 5000_to_10000_sq_ft      |            400 | more_than_10000_sq_ft |            600 |
+| general_merchant | property_damage               | upto_500000          |            200 | 500000_to_1000000        |            400 | 1000000_to_1500000    |            600 |
+| general_merchant | bodily_injury                 | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| general_merchant | asset_theft_limit             | upto_50000           |            200 | 50000_t0_100000          |            400 | 100001_to_200000      |            600 |
+| general_merchant | liability_coverage            | 10000_to_30000       |            200 | 10000_to_30000           |            400 | 10000_to_30000        |            600 |
+| Restaurant       | Restaurant sq.ft              | less than 1500 sq.ft |            200 | from 1500 to 5000 sq ft  |            400 | more than 5000 sq.ft  |            600 |
+| Restaurant       | No. of sprinklers             | up to 20             |            200 | 21 to 40                 |            400 | more than 40          |            600 |
+| Restaurant       | No.of cylinders in kitchen    | up to 5              |            200 | 6 to 15                  |            400 | more than 15          |            600 |
+| Restaurant       | Fine Arts                     | 5000 to 15000        |            200 | 15000-30000              |            400 | more than 30000       |            600 |
+| Restaurant       | Property Damage               | up to 500000         |            200 | from 500000 to 1500000   |            400 | more than 1500000     |            600 |
+| Restaurant       | Equipment Breakdown           | up to 50000          |            200 | from 50000 to 200000     |            400 | more than 200000      |            600 |
+| Restaurant       | Liability Coverage            | 10000-15000          |            200 | from 15001 to 30000      |            400 | more than 30000       |            600 |
+| Restaurant       | Bodily Injury                 | up to 25000          |            200 | 25001 to 50000           |            400 | more than 50000       |            600 |
+| Apartment        | Apartment Sq.ft               | up to 1500 Sq.ft     |            200 | from 1500 to 5000sq.ft   |            400 | more than 5000        |            600 |
+| Apartment        | No. of sprinklers             | up to 5              |            200 | from 6 to 10             |            400 | more than 10          |            600 |
+| Apartment        | Build year                    | before 2000          |            200 | 2000 to 2010             |            400 | after 2010            |            600 |
+| Apartment        | Property Damage               | up to 500000         |            200 | from 500000 to 1500000   |            400 | more than 1500000     |            600 |
+| Apartment        | Body injury limit             | 50000-100000         |            200 | 100001-300000            |            400 | more than 300000      |            600 |
+| Apartment        | No. of floors                 | less than 10         |            200 | 10-30                    |            400 | more than 30          |            600 |
+| Apartment        | Number of fire exits          | 1                    |            200 | 2-3                      |            400 | more than 3           |            600 |
+| Apartment        | Asset Theft Limit             | up to 50000          |            200 | 50000-100000             |            400 | 100001-200000         |            600 |
++------------------+-------------------------------+----------------------+----------------+--------------------------+----------------+-----------------------+----------------+
+34 rows in set (0.00 sec)
+
+mysql> truncate table policycreation;
+Query OK, 0 rows affected (1.11 sec)
+
+mysql> ALTER TABLE policycreation
+    -> ADD COLUMN policynumber int(20);
+Query OK, 0 rows affected (2.21 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| temporarydata    |
+| userlogin        |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from policydetails;
++---------+---------------+----------------+
+| premium | policy_number | account_number |
++---------+---------------+----------------+
+|    3200 |      19010001 |         100001 |
+|    3400 |      19010002 |       11234455 |
+|    3600 |      19010003 |         789456 |
++---------+---------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from policycreation;
+Empty set (0.00 sec)
+
+mysql> insert into policycreation  values('Business_auto','vehical_type','light',200,'heavy',400,'truck',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','vehical_model_year','less than 2000',200,'2001_to_2010',400,'more_than_2010',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','vehical_model','high_segement',200,'mid_segement',400,'economy',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','daily_commute_distance','less_than_21',200,'21_to_50',400,'greater_than_50',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','service_center','authorized',200,'non_authorized',400,' ',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','collison_coverage_limit','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','bodily_injury_limit','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','uninsured_motorist','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','unknown_hit_or_theft_coverage','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('Business_auto','property_and_liability','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql>
+mysql>
+mysql>
+mysql> insert into policycreation  values('general_merchant','business_type','general_store',200,'hardware',400,'clothing',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','asset_value','less_than_1000000',200,'1000001_to_2500000',400,'more_than_2500001',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','inflammable_objects','yes',200,'no',400,' ',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','propert_size','less_than_5000_sq_ft',200,'5000_to_10000_sq_ft',400,'more_than_10000_sq_ft',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','property_damage','upto_500000',200,'500000_to_1000000',400,'1000000_to_1500000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','bodily_injury','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','asset_theft_limit','upto_50000',200,'50000_t0_100000',400,'100001_to_200000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into policycreation  values('general_merchant','liability_coverage','10000_to_30000',200,'10000_to_30000',400,'10000_to_30000',600);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> alter table policycreation delete column policynumber
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete column policynumber' at line 1
+mysql> desc policycreation;
++------------------+-------------+------+-----+---------+-------+
+| Field            | Type        | Null | Key | Default | Extra |
++------------------+-------------+------+-----+---------+-------+
+| Business_segment | varchar(20) | YES  |     | NULL    |       |
+| Question         | varchar(50) | YES  |     | NULL    |       |
+| Answer1          | varchar(30) | YES  |     | NULL    |       |
+| Ans1_weightage   | int(5)      | YES  |     | NULL    |       |
+| Answer2          | varchar(30) | YES  |     | NULL    |       |
+| Ans2_weightage   | int(5)      | YES  |     | NULL    |       |
+| Answer3          | varchar(30) | YES  |     | NULL    |       |
+| Ans3_weightage   | int(5)      | YES  |     | NULL    |       |
+| policynumber     | int(20)     | YES  |     | NULL    |       |
++------------------+-------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> alter table policycreation drop column policynumber;
+Query OK, 0 rows affected (1.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> insert into policycreation  values('Business_auto','vehical_type','light',200,'heavy',400,'truck',600);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into policycreation  values('Business_auto','vehical_model_year','less than 2000',200,'2001_to_2010',400,'more_than_2010',600);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into policycreation  values('Business_auto','vehical_model','high_segement',200,'mid_segement',400,'economy',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into policycreation  values('Business_auto','daily_commute_distance','less_than_21',200,'21_to_50',400,'greater_than_50',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into policycreation  values('Business_auto','service_center','authorized',200,'non_authorized',400,' ',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation  values('Business_auto','collison_coverage_limit','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','bodily_injury_limit','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into policycreation  values('Business_auto','uninsured_motorist','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('Business_auto','unknown_hit_or_theft_coverage','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into policycreation  values('Business_auto','property_and_liability','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.13 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> insert into policycreation  values('general_merchant','business_type','general_store',200,'hardware',400,'clothing',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into policycreation  values('general_merchant','asset_value','less_than_1000000',200,'1000001_to_2500000',400,'more_than_2500001',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation  values('general_merchant','inflammable_objects','yes',200,'no',400,' ',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into policycreation  values('general_merchant','propert_size','less_than_5000_sq_ft',200,'5000_to_10000_sq_ft',400,'more_than_10000_sq_ft',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('general_merchant','property_damage','upto_500000',200,'500000_to_1000000',400,'1000000_to_1500000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('general_merchant','bodily_injury','10000_to_30000',200,'30001_to_50000',400,'50001_to_10000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into policycreation  values('general_merchant','asset_theft_limit','upto_50000',200,'50000_t0_100000',400,'100001_to_200000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into policycreation  values('general_merchant','liability_coverage','10000_to_30000',200,'10000_to_30000',400,'10000_to_30000',600);
+Query OK, 1 row affected (0.40 sec)
+
+mysql> insert into policycreation values('Restaurant','Restaurant type','only dining',200,'Dining with bar',400,'dining with bar and entertainment',600);
+ERROR 1406 (22001): Data too long for column 'Answer3' at row 1
+mysql>
+mysql> insert into policycreation values('Restaurant','Restaurant sq.ft','less than 1500 sq.ft',200,'from 1500 to 5000 sq ft ',400,'more than 5000 sq.ft',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql>
+mysql> insert into policycreation values('Restaurant','No. of sprinklers','up to 20',200,'21 to 40',400,'more than 40',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql>
+mysql> insert into policycreation values('Restaurant','No.of cylinders in kitchen','up to 5',200,'6 to 15 ',400,'more than 15',600);
+Query OK, 1 row affected (0.10 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Fine Arts','5000 to 15000',200,'15000-30000',400,'more than 30000',600);
+Query OK, 1 row affected (0.17 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Property Damage','up to 500000',200,'from 500000 to 1500000',400,'more than 1500000',600);
+Query OK, 1 row affected (0.08 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Equipment Breakdown','up to 50000',200,'from 50000 to 200000',400,'more than 200000',600);
+Query OK, 1 row affected (0.15 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Liability Coverage','10000-15000',200,'from 15001 to 30000',400,'more than 30000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Restaurant','Bodily Injury','up to 25000',200,'25001 to 50000',400,'more than 50000',600);
+Query OK, 1 row affected (0.09 sec)
+
+mysql>
+mysql>
+mysql> insert into policycreation values('Apartment','Apartment Sq.ft','up to 1500 Sq.ft',200,'from 1500 to 5000sq.ft',400,'more than 5000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','No. of sprinklers','up to 5',200,'from 6 to 10',400,'more than 10',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Build year','before 2000',200,'2000 to 2010',400,'after 2010',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Property Damage','up to 500000',200,'from 500000 to 1500000',400,'more than 1500000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Body injury limit','50000-100000',200,'100001-300000',400,'more than 300000',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','No. of floors','less than 10',200,'10-30',400,'more than 30',600);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Number of fire exits','1',200,'2-3',400,'more than 3',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql>
+mysql> insert into policycreation values('Apartment','Asset Theft Limit','up to 50000',200,'50000-100000',400,'100001-200000',600);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| temporarydata    |
+| userlogin        |
++------------------+
+9 rows in set (0.00 sec)
+
+mysql> create table reportgeneration(question varchar(30),answer varchar(20),weightage int(20),policynumber int(20));
+Query OK, 0 rows affected (0.58 sec)
+
+mysql> select * from reportgeneration;
+Empty set (0.08 sec)
+
+mysql> select * from reportgeneration;
+Empty set (0.00 sec)
+
+mysql> select * from reportgeneration;
+Empty set (0.00 sec)
+
+mysql> desc reportgeneration;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| question     | varchar(30) | YES  |     | NULL    |       |
+| answer       | varchar(20) | YES  |     | NULL    |       |
+| weightage    | int(20)     | YES  |     | NULL    |       |
+| policynumber | int(20)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.15 sec)
+
+mysql> select * from reportgeneration;
+Empty set (0.00 sec)
+
+mysql> select * from reportgeneration;
+Empty set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| reportgeneration |
+| temporarydata    |
+| userlogin        |
++------------------+
+10 rows in set (0.10 sec)
+
+mysql> select * from policydetails;
++---------+---------------+----------------+
+| premium | policy_number | account_number |
++---------+---------------+----------------+
+|    3200 |      19010001 |         100001 |
+|    3400 |      19010002 |       11234455 |
+|    3600 |      19010003 |         789456 |
+|    3000 |      19010004 |       45265212 |
+|    2800 |      19010005 |      123346432 |
+|    3200 |      19010006 |         845795 |
+|    2800 |      19010007 |         528406 |
+|    2800 |      19010008 |       74125588 |
+|    3000 |      19010009 |      741258963 |
++---------+---------------+----------------+
+9 rows in set (0.00 sec)
+
+mysql> select * from bussinessreport;
++-----------------+-----------+--------------+
+| businesssegment | username  | policynumber |
++-----------------+-----------+--------------+
+| Restaurant      | RamCharan |     19010004 |
+| Restaurant      | RamCharan |     19010005 |
++-----------------+-----------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from accountdetails;
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| username  | insured_name | insured_street | insured_city | insured_state | insured_zip | business_segment | account_number | agent_Name |
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| NULL      | ramcha       | ramstret       | city         | ap            |       53002 | Business_auto    |         100001 | NULL       |
+| Susanth   | Ramcharab    | ssg            | werty        | qwertyu       |       78945 | Business_auto    |         528406 | RamCharan  |
+| susanth   | nitish       | navallur       | vizag        | andhra        |       53002 | Business_auto    |         789456 | RamCharan  |
+| Suantha12 | Susanth      | chick          | wakeup       | hell          |       45612 | Apartment        |         845795 | RamCharan  |
+| NULL      | susanth      | street         | city         | state         |       12345 | Business_auto    |       11234455 | NULL       |
+| sufalldas | sufall       | sipcot         | chennai      | tekengana     |       56564 | Restaurant       |       45265212 | RamCharan  |
+| sggbdxb   | iuthcj       | ghjsbdk        | dsgsgd       | gbdfsfsrgd    |      456525 | Apartment        |       45875569 | RamCharan  |
+| rsdjskdjd | hdjdind      | bdchbsm        | shfnd        | ssjxjnd       |      784551 | Apartment        |       74125588 | RamCharan  |
+| vishun12  | vishnu       | strett         | hell         | welll         |       45612 | Restaurant       |      123346432 | RamCharan  |
+| afhafha   | uiadfdhadf   | afjkhhaf       | adkdfaf      | adkldf        |       45612 | Business_auto    |      741258963 | RamCharan  |
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> desc userlogin;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | YES  |     | NULL    |       |
+| password | varchar(10) | YES  |     | NULL    |       |
+| rolecode | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc reportgeneration;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| question     | varchar(30) | YES  |     | NULL    |       |
+| answer       | varchar(20) | YES  |     | NULL    |       |
+| weightage    | int(20)     | YES  |     | NULL    |       |
+| policynumber | int(20)     | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.18 sec)
+
+mysql> select * from policycreation;
++------------------+-------------------------------+----------------------+----------------+--------------------------+----------------+-----------------------+----------------+
+| Business_segment | Question                      | Answer1              | Ans1_weightage | Answer2                  | Ans2_weightage | Answer3               | Ans3_weightage |
++------------------+-------------------------------+----------------------+----------------+--------------------------+----------------+-----------------------+----------------+
+| Business_auto    | vehical_type                  | light                |            200 | heavy                    |            400 | truck                 |            600 |
+| Business_auto    | vehical_model_year            | less than 2000       |            200 | 2001_to_2010             |            400 | more_than_2010        |            600 |
+| Business_auto    | vehical_model                 | high_segement        |            200 | mid_segement             |            400 | economy               |            600 |
+| Business_auto    | daily_commute_distance        | less_than_21         |            200 | 21_to_50                 |            400 | greater_than_50       |            600 |
+| Business_auto    | service_center                | authorized           |            200 | non_authorized           |            400 |                       |            600 |
+| Business_auto    | collison_coverage_limit       | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | bodily_injury_limit           | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | uninsured_motorist            | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | unknown_hit_or_theft_coverage | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| Business_auto    | property_and_liability        | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| general_merchant | business_type                 | general_store        |            200 | hardware                 |            400 | clothing              |            600 |
+| general_merchant | asset_value                   | less_than_1000000    |            200 | 1000001_to_2500000       |            400 | more_than_2500001     |            600 |
+| general_merchant | inflammable_objects           | yes                  |            200 | no                       |            400 |                       |            600 |
+| general_merchant | propert_size                  | less_than_5000_sq_ft |            200 | 5000_to_10000_sq_ft      |            400 | more_than_10000_sq_ft |            600 |
+| general_merchant | property_damage               | upto_500000          |            200 | 500000_to_1000000        |            400 | 1000000_to_1500000    |            600 |
+| general_merchant | bodily_injury                 | 10000_to_30000       |            200 | 30001_to_50000           |            400 | 50001_to_10000        |            600 |
+| general_merchant | asset_theft_limit             | upto_50000           |            200 | 50000_t0_100000          |            400 | 100001_to_200000      |            600 |
+| general_merchant | liability_coverage            | 10000_to_30000       |            200 | 10000_to_30000           |            400 | 10000_to_30000        |            600 |
+| Restaurant       | Restaurant sq.ft              | less than 1500 sq.ft |            200 | from 1500 to 5000 sq ft  |            400 | more than 5000 sq.ft  |            600 |
+| Restaurant       | No. of sprinklers             | up to 20             |            200 | 21 to 40                 |            400 | more than 40          |            600 |
+| Restaurant       | No.of cylinders in kitchen    | up to 5              |            200 | 6 to 15                  |            400 | more than 15          |            600 |
+| Restaurant       | Fine Arts                     | 5000 to 15000        |            200 | 15000-30000              |            400 | more than 30000       |            600 |
+| Restaurant       | Property Damage               | up to 500000         |            200 | from 500000 to 1500000   |            400 | more than 1500000     |            600 |
+| Restaurant       | Equipment Breakdown           | up to 50000          |            200 | from 50000 to 200000     |            400 | more than 200000      |            600 |
+| Restaurant       | Liability Coverage            | 10000-15000          |            200 | from 15001 to 30000      |            400 | more than 30000       |            600 |
+| Restaurant       | Bodily Injury                 | up to 25000          |            200 | 25001 to 50000           |            400 | more than 50000       |            600 |
+| Apartment        | Apartment Sq.ft               | up to 1500 Sq.ft     |            200 | from 1500 to 5000sq.ft   |            400 | more than 5000        |            600 |
+| Apartment        | No. of sprinklers             | up to 5              |            200 | from 6 to 10             |            400 | more than 10          |            600 |
+| Apartment        | Build year                    | before 2000          |            200 | 2000 to 2010             |            400 | after 2010            |            600 |
+| Apartment        | Property Damage               | up to 500000         |            200 | from 500000 to 1500000   |            400 | more than 1500000     |            600 |
+| Apartment        | Body injury limit             | 50000-100000         |            200 | 100001-300000            |            400 | more than 300000      |            600 |
+| Apartment        | No. of floors                 | less than 10         |            200 | 10-30                    |            400 | more than 30          |            600 |
+| Apartment        | Number of fire exits          | 1                    |            200 | 2-3                      |            400 | more than 3           |            600 |
+| Apartment        | Asset Theft Limit             | up to 50000          |            200 | 50000-100000             |            400 | 100001-200000         |            600 |
++------------------+-------------------------------+----------------------+----------------+--------------------------+----------------+-----------------------+----------------+
+34 rows in set (0.02 sec)
+
+mysql> alter table reportgeneration modify column answer varchar(30);
+Query OK, 0 rows affected (1.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from bussinessreport;
++-----------------+-----------+--------------+
+| businesssegment | username  | policynumber |
++-----------------+-----------+--------------+
+| Restaurant      | RamCharan |     19010004 |
+| Restaurant      | RamCharan |     19010005 |
+| Apartment       | RamCharan |     19010013 |
++-----------------+-----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from reportgeneration;
++-------------------------------+------------------------+-----------+--------------+
+| question                      | answer                 | weightage | policynumber |
++-------------------------------+------------------------+-----------+--------------+
+| Apartment Sq.ft               | from 1500 to 5000sq.ft |       400 |     19010013 |
+| No. of sprinklers             | up to 5                |       200 |     19010013 |
+| Build year                    | after 2010             |       600 |     19010013 |
+| Property Damage               | from 500000 to 1500000 |       400 |     19010013 |
+| Body injury limit             | 50000-100000           |       200 |     19010013 |
+| No. of floors                 | 10-30                  |       400 |     19010013 |
+| Number of fire exits          | more than 3            |       600 |     19010013 |
+| Asset Theft Limit             | 50000-100000           |       400 |     19010013 |
+| vehical_type                  | heavy                  |       400 |     19010013 |
+| vehical_model_year            | less than 2000         |       200 |     19010013 |
+| vehical_model                 | mid_segement           |       400 |     19010013 |
+| daily_commute_distance        | less_than_21           |       200 |     19010013 |
+| service_center                | less_than_21           |       200 |     19010013 |
+| collison_coverage_limit       | 30001_to_50000         |       400 |     19010013 |
+| bodily_injury_limit           | 10000_to_30000         |       200 |     19010013 |
+| uninsured_motorist            | 30001_to_50000         |       400 |     19010013 |
+| unknown_hit_or_theft_coverage | 10000_to_30000         |       200 |     19010013 |
+| property_and_liability        | 30001_to_50000         |       400 |     19010013 |
+| Apartment Sq.ft               | from 1500 to 5000sq.ft |       400 |     19010013 |
+| No. of sprinklers             | more than 10           |       600 |     19010013 |
+| Build year                    | 2000 to 2010           |       400 |     19010013 |
+| Property Damage               | up to 500000           |       200 |     19010013 |
+| Body injury limit             | 50000-100000           |       200 |     19010013 |
+| No. of floors                 | 10-30                  |       400 |     19010013 |
+| Number of fire exits          | 1                      |       200 |     19010013 |
+| Asset Theft Limit             | 50000-100000           |       400 |     19010013 |
+| vehical_type                  | light                  |       200 |     19010013 |
+| vehical_model_year            | 2001_to_2010           |       400 |     19010013 |
+| vehical_model                 | economy                |       600 |     19010013 |
+| daily_commute_distance        | 21_to_50               |       400 |     19010013 |
+| service_center                | authorized             |       200 |     19010013 |
+| collison_coverage_limit       | 30001_to_50000         |       400 |     19010013 |
+| bodily_injury_limit           | 10000_to_30000         |       200 |     19010013 |
+| uninsured_motorist            | 10000_to_30000         |       200 |     19010013 |
+| unknown_hit_or_theft_coverage | 10000_to_30000         |       200 |     19010013 |
+| property_and_liability        | 10000_to_30000         |       200 |     19010013 |
+| Apartment Sq.ft               | up to 1500 Sq.ft       |       200 |     19010013 |
+| No. of sprinklers             | from 6 to 10           |       400 |     19010013 |
+| Build year                    | before 2000            |       200 |     19010013 |
+| Property Damage               | from 500000 to 1500000 |       400 |     19010013 |
+| Body injury limit             | 50000-100000           |       200 |     19010013 |
+| No. of floors                 | less than 10           |       200 |     19010013 |
+| Number of fire exits          | 2-3                    |       400 |     19010013 |
+| Asset Theft Limit             | up to 50000            |       200 |     19010013 |
+| business_type                 | general_store          |       200 |     19010013 |
+| asset_value                   | 1000001_to_2500000     |       400 |     19010013 |
+| inflammable_objects           | yes                    |       200 |     19010013 |
+| propert_size                  | 5000_to_10000_sq_ft    |       400 |     19010013 |
+| property_damage               | 1000000_to_1500000     |       600 |     19010013 |
+| bodily_injury                 | 30001_to_50000         |       400 |     19010013 |
+| asset_theft_limit             | upto_50000             |       200 |     19010013 |
+| liability_coverage            | 10000_to_30000         |       400 |     19010013 |
+| Restaurant sq.ft              | less than 1500 sq.ft   |       200 |     19010013 |
+| No. of sprinklers             | 21 to 40               |       400 |     19010013 |
+| No.of cylinders in kitchen    | more than 15           |       600 |     19010013 |
+| Fine Arts                     | 15000-30000            |       400 |     19010013 |
+| Property Damage               | up to 500000           |       200 |     19010013 |
+| Equipment Breakdown           | from 50000 to 200000   |       400 |     19010013 |
+| Liability Coverage            | from 15001 to 30000    |       400 |     19010013 |
+| Bodily Injury                 | up to 25000            |       200 |     19010013 |
+| Apartment Sq.ft               | up to 1500 Sq.ft       |       200 |     19010013 |
+| No. of sprinklers             | from 6 to 10           |       400 |     19010013 |
+| Build year                    | before 2000            |       200 |     19010013 |
+| Property Damage               | from 500000 to 1500000 |       400 |     19010013 |
+| Body injury limit             | 50000-100000           |       200 |     19010013 |
+| No. of floors                 | 10-30                  |       400 |     19010013 |
+| Number of fire exits          | 1                      |       200 |     19010013 |
+| Asset Theft Limit             | 50000-100000           |       400 |     19010013 |
++-------------------------------+------------------------+-----------+--------------+
+68 rows in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| reportgeneration |
+| temporarydata    |
+| userlogin        |
++------------------+
+10 rows in set (0.10 sec)
+
+mysql> select * from bussinessreport;
++-----------------+-----------+--------------+
+| businesssegment | username  | policynumber |
++-----------------+-----------+--------------+
+| Restaurant      | RamCharan |     19010004 |
+| Restaurant      | RamCharan |     19010005 |
+| Apartment       | RamCharan |     19010013 |
++-----------------+-----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> truncate table bussinessreport;
+Query OK, 0 rows affected (0.85 sec)
+
+mysql> truncate table reportgeneration;
+Query OK, 0 rows affected (0.86 sec)
+
+mysql> truncate table policydetails;;
+Query OK, 0 rows affected (0.92 sec)
+
+ERROR:
+No query specified
+
+mysql> select * from temporarydata;
+Empty set (0.11 sec)
+
+mysql> truncate table accountdetails;
+ERROR 1701 (42000): Cannot truncate a table referenced in a foreign key constraint (`holder`.`policydetails`, CONSTRAINT `policydetails_ibfk_1`)
+mysql> select * from reportgeneration;
++----------------------------+----------------------+-----------+--------------+
+| question                   | answer               | weightage | policynumber |
++----------------------------+----------------------+-----------+--------------+
+| Restaurant sq.ft           | less than 1500 sq.ft |       200 |     19010014 |
+| No. of sprinklers          | 21 to 40             |       400 |     19010014 |
+| No.of cylinders in kitchen | up to 5              |       200 |     19010014 |
+| Fine Arts                  | 15000-30000          |       400 |     19010014 |
+| Property Damage            | up to 500000         |       200 |     19010014 |
+| Equipment Breakdown        | from 50000 to 200000 |       400 |     19010014 |
+| Liability Coverage         | 10000-15000          |       200 |     19010014 |
+| Bodily Injury              | 25001 to 50000       |       400 |     19010014 |
++----------------------------+----------------------+-----------+--------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from bussinessreport;
++-----------------+-----------+--------------+
+| businesssegment | username  | policynumber |
++-----------------+-----------+--------------+
+| Restaurant      | RamCharan |     19010014 |
++-----------------+-----------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select * from bussinessreport;
++-----------------+-----------+--------------+
+| businesssegment | username  | policynumber |
++-----------------+-----------+--------------+
+| Restaurant      | RamCharan |     19010014 |
++-----------------+-----------+--------------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_holder |
++------------------+
+| accountdetails   |
+| bussinessreport  |
+| customer         |
+| jobportal        |
+| policycreation   |
+| policydetails    |
+| product          |
+| reportgeneration |
+| temporarydata    |
+| userlogin        |
++------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from accountdetails;
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| username  | insured_name | insured_street | insured_city | insured_state | insured_zip | business_segment | account_number | agent_Name |
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| NULL      | ramcha       | ramstret       | city         | ap            |       53002 | Business_auto    |         100001 | NULL       |
+| Susanth   | Ramcharab    | ssg            | werty        | qwertyu       |       78945 | Business_auto    |         528406 | RamCharan  |
+| adfsfgdg  | eliafndas    | sfsfgsdh       | xzfsgd       | bzzgh         |       45236 | Apartment        |         745852 | RamCharan  |
+| susanth   | nitish       | navallur       | vizag        | andhra        |       53002 | Business_auto    |         789456 | RamCharan  |
+| Suantha12 | Susanth      | chick          | wakeup       | hell          |       45612 | Apartment        |         845795 | RamCharan  |
+| NULL      | susanth      | street         | city         | state         |       12345 | Business_auto    |       11234455 | NULL       |
+| sufalldas | sufall       | sipcot         | chennai      | tekengana     |       56564 | Restaurant       |       45265212 | RamCharan  |
+| sggbdxb   | iuthcj       | ghjsbdk        | dsgsgd       | gbdfsfsrgd    |      456525 | Apartment        |       45875569 | RamCharan  |
+| tdgjskd   | yidksdh      | Jackson        | ammy         | hottie        |      785416 | Restaurant       |       74123365 | RamCharan  |
+| rsdjskdjd | hdjdind      | bdchbsm        | shfnd        | ssjxjnd       |      784551 | Apartment        |       74125588 | RamCharan  |
+| vishun12  | vishnu       | strett         | hell         | welll         |       45612 | Restaurant       |      123346432 | RamCharan  |
+| tatata    | ballaya      | janaki         | venaki       | github        |     3659852 | Restaurant       |      654982214 | RamCharan  |
+| afhafha   | uiadfdhadf   | afjkhhaf       | adkdfaf      | adkldf        |       45612 | Business_auto    |      741258963 | RamCharan  |
+| aKUFh     | szsfgdshdg   | zxfgdg         | xzfgdxb      | zgdshb        |       45612 | general_merchant |      852369741 | RamCharan  |
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from accountdetails;
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| username  | insured_name | insured_street | insured_city | insured_state | insured_zip | business_segment | account_number | agent_Name |
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+| NULL      | ramcha       | ramstret       | city         | ap            |       53002 | Business_auto    |         100001 | NULL       |
+| Susanth   | Ramcharab    | ssg            | werty        | qwertyu       |       78945 | Business_auto    |         528406 | RamCharan  |
+| adfsfgdg  | eliafndas    | sfsfgsdh       | xzfsgd       | bzzgh         |       45236 | Apartment        |         745852 | RamCharan  |
+| susanth   | nitish       | navallur       | vizag        | andhra        |       53002 | Business_auto    |         789456 | RamCharan  |
+| Suantha12 | Susanth      | chick          | wakeup       | hell          |       45612 | Apartment        |         845795 | RamCharan  |
+| NULL      | susanth      | street         | city         | state         |       12345 | Business_auto    |       11234455 | NULL       |
+| sufalldas | sufall       | sipcot         | chennai      | tekengana     |       56564 | Restaurant       |       45265212 | RamCharan  |
+| sggbdxb   | iuthcj       | ghjsbdk        | dsgsgd       | gbdfsfsrgd    |      456525 | Apartment        |       45875569 | RamCharan  |
+| tdgjskd   | yidksdh      | Jackson        | ammy         | hottie        |      785416 | Restaurant       |       74123365 | RamCharan  |
+| rsdjskdjd | hdjdind      | bdchbsm        | shfnd        | ssjxjnd       |      784551 | Apartment        |       74125588 | RamCharan  |
+| vishun12  | vishnu       | strett         | hell         | welll         |       45612 | Restaurant       |      123346432 | RamCharan  |
+| tatata    | ballaya      | janaki         | venaki       | github        |     3659852 | Restaurant       |      654982214 | RamCharan  |
+| afhafha   | uiadfdhadf   | afjkhhaf       | adkdfaf      | adkldf        |       45612 | Business_auto    |      741258963 | RamCharan  |
+| aKUFh     | szsfgdshdg   | zxfgdg         | xzfgdxb      | zgdshb        |       45612 | general_merchant |      852369741 | RamCharan  |
++-----------+--------------+----------------+--------------+---------------+-------------+------------------+----------------+------------+
+14 rows in set (0.07 sec)
+
+mysql> select * from reportgeneration;
++----------------------------+------------------------+-----------+--------------+
+| question                   | answer                 | weightage | policynumber |
++----------------------------+------------------------+-----------+--------------+
+| Restaurant sq.ft           | less than 1500 sq.ft   |       200 |     19010014 |
+| No. of sprinklers          | 21 to 40               |       400 |     19010014 |
+| No.of cylinders in kitchen | up to 5                |       200 |     19010014 |
+| Fine Arts                  | 15000-30000            |       400 |     19010014 |
+| Property Damage            | up to 500000           |       200 |     19010014 |
+| Equipment Breakdown        | from 50000 to 200000   |       400 |     19010014 |
+| Liability Coverage         | 10000-15000            |       200 |     19010014 |
+| Bodily Injury              | 25001 to 50000         |       400 |     19010014 |
+| Apartment Sq.ft            | up to 1500 Sq.ft       |       200 |     19010015 |
+| No. of sprinklers          | from 6 to 10           |       400 |     19010015 |
+| Build year                 | before 2000            |       200 |     19010015 |
+| Property Damage            | from 500000 to 1500000 |       400 |     19010015 |
+| Body injury limit          | 50000-100000           |       200 |     19010015 |
+| No. of floors              | 10-30                  |       400 |     19010015 |
+| Number of fire exits       | 1                      |       200 |     19010015 |
+| Asset Theft Limit          | 100001-200000          |       600 |     19010015 |
+| property_and_liability     | 10000_to_30000         |       200 |     19010015 |
+| property_and_liability     | 10000_to_30000         |       200 |     19010015 |
++----------------------------+------------------------+-----------+--------------+
+18 rows in set (0.00 sec)
+
+mysql> select * from bussinessreport;
++-----------------+-----------+--------------+
+| businesssegment | username  | policynumber |
++-----------------+-----------+--------------+
+| Restaurant      | RamCharan |     19010014 |
+| Business_auto   | Sushanth  |     19010015 |
++-----------------+-----------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select a.policy_number,b.businesssegment,a.account_number,a.premium from policyDetails a,bussinessReport b, accountdetails c where c.agent_Name=RamCharan and c.account_number=a.account_number and  a.policy_number=b.policynumber
+    -> ;
+ERROR 1054 (42S22): Unknown column 'RamCharan' in 'where clause'
+mysql> select a.policy_number,b.businesssegment,a.account_number,a.premium from policyDetails a,bussinessReport b, accountdetails c where c.agent_Name='RamCharan' and c.account_number=a.account_number and  a.policy_number=b.policynumber
+    -> ;
++---------------+-----------------+----------------+---------+
+| policy_number | businesssegment | account_number | premium |
++---------------+-----------------+----------------+---------+
+|      19010014 | Restaurant      |      654982214 |    2400 |
++---------------+-----------------+----------------+---------+
+1 row in set (0.12 sec)
+
+mysql> select * from userlogin;
++-----------+----------+----------+
+| username  | password | rolecode |
++-----------+----------+----------+
+| RamCharan | Ram      | Admin    |
+| sufall    | sufaldas | agent    |
++-----------+----------+----------+
+2 rows in set (0.00 sec)
+
+mysql>

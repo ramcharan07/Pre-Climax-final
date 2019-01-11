@@ -1,0 +1,11 @@
+update dummytable set  no_of_policies=(select count(account_number) from policyDetails where account_number= 2234516787) where agentName='rana'; 
+
+
+
+
+[?1/?9/?2019 1:55 PM]  Ghosh, Jaya:  
+update dummytable set  no_of_customers=(select count(insuredName) from accountDetails where agentname= 'rana') where agentName='rana'; 
+yes
+paste these 2 query smwhr
+and hav u decided anythng abt that table
+ 
